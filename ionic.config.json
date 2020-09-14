@@ -1,0 +1,7 @@
+{
+  "name": "FitGym",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
