@@ -23,6 +23,10 @@ const routes: Routes = [
     path: 'gimnasios',
     loadChildren: () => import('./Vistas/gimnasios/gimnasios.module').then( m => m.GimnasiosPageModule)
   },
+  {
+    path: 'detalle-infinity-gyn',
+    loadChildren: () => import('./Vistas/detalle-infinity-gyn/detalle-infinity-gyn.module').then( m => m.DetalleInfinityGynPageModule)
+  },
 ];
 
 @NgModule({
