@@ -1,14 +1,43 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { IonSlides } from '@ionic/angular';
+import { FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AlertController, IonSlides, LoadingController, ToastController } from '@ionic/angular';
+import { Storage } from '@ionic/storage';
+import { UsuariosService } from '../services/usuarios.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
 })
-export class LoginPage implements OnInit {
-  @ViewChild('slidePrincipal') slides: IonSlides;
+export class LoginPage {
+  loginForm:FormGroup;
+  @ViewChild('sLidePrincipal') slides: IonSlides;
+ 
+  constructor(
+    private router: Router,
+    private UsuariosService:UsuariosService,
+   
+    private storage: Storage,
+    public toastController: ToastController,
+
+    public loadingController: LoadingController,
+    public formBuilder: FormBuilder,
+    public alertController: AlertController
+  ) {
+    this.loginForm = this.formBuilder.group({
+      user: new FormControl('', Validators.compose([
+        Validators.required,
+      ])),
+      password: new FormControl('', Validators.compose([
+        Validators.required,
+      ])),
+      isadmin: new FormControl('false', Validators.compose([
+        Validators.required,
+      ]))
+    });
+  }
+  
   avatars = [
     {
       img: 'av-1.png',
@@ -44,27 +73,59 @@ export class LoginPage implements OnInit {
     },
 ];
 
-  constructor() { }
+ionViewDidEnter() {
+  this.slides.lockSwipes( true );
+}
 
   ngOnInit() {
+    
+  }
+  
+
+  mostrarRegisto() {
+    this.slides.lockSwipes( false );
+    this.slides.slideTo(1);
+    this.slides.lockSwipes( true );
+  }
+
+  mostrarLogin() {
+    this.slides.lockSwipes( false );
+    this.slides.slideTo(0);
+    this.slides.lockSwipes( true );
+  }
+
+ 
+
+  async login(){
    
-  }
-  ionViewDidEnter() {
-    this.slides.lockSwipes(true);
-  }
-  login(fLogin: NgForm){
-    console.log(fLogin.valid);
-    }
-    registro(fRegistro:NgForm){
-      console.log(fRegistro.valid);
-    }
-    mostrarRegistro()
-    {
+    
+    const loading = await this.loadingController.create({
+    });
+    await loading.present();
+    this.UsuariosService.UserLogin(
+      this.loginForm.get('user').value,
+      this.loginForm.get('password').value).subscribe((data:any) => {
+        loading.dismiss();
+    
+    console.log(data);
   
+    this.presentAlert('Datos correctos.')
+    this.router.navigate(['/inicio']);
+      }, (error) => {
+        loading.dismiss();
+       
+      });
     }
-    mostrarLogin()
-    {
+
+    async presentAlert(msj) {
+      const alert = await this.alertController.create({
+        header: 'Success',
+        message: msj,
+      });
   
+      await alert.present();
     }
+
+  
 
 }
