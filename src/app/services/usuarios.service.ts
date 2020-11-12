@@ -14,8 +14,12 @@ export class UsuariosService {
 
   UserLogin(user, password) {
     
-    // return this.http.get(`${this.endpoint}userlogin.php?email=${email}&password=${password}`);
+   
     return this.http.post(`${environment.API_URL}usuario/authUser`, {UserName: user, Password: password}, {headers : this.headers});
+  }
+  UserRegister(user, password) {
+      
+    return this.http.post(`${environment.API_URL}usuario`, {UserName: user, Password: password}, {headers : this.headers});
   }
 }
                       

@@ -12,6 +12,7 @@ import { UsuariosService } from '../services/usuarios.service';
 })
 export class LoginPage {
   loginForm:FormGroup;
+  RegisterForm:FormGroup;
   @ViewChild('sLidePrincipal') slides: IonSlides;
  
   constructor(
@@ -26,6 +27,18 @@ export class LoginPage {
     public alertController: AlertController
   ) {
     this.loginForm = this.formBuilder.group({
+      user: new FormControl('', Validators.compose([
+        Validators.required,
+      ])),
+      password: new FormControl('', Validators.compose([
+        Validators.required,
+      ])),
+      isadmin: new FormControl('false', Validators.compose([
+        Validators.required,
+      ]))
+    });
+    
+    this.RegisterForm = this.formBuilder.group({
       user: new FormControl('', Validators.compose([
         Validators.required,
       ])),
@@ -126,6 +139,12 @@ ionViewDidEnter() {
       await alert.present();
     }
 
+    async Registrar(){
+      const loading = await this.loadingController.create({
+      });
+      await loading.present();
+       //console.log();
+    }
   
 
 }

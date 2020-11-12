@@ -27,6 +27,10 @@ const routes: Routes = [
     path: 'detalle-infinity-gyn',
     loadChildren: () => import('./Vistas/detalle-infinity-gyn/detalle-infinity-gyn.module').then( m => m.DetalleInfinityGynPageModule)
   },
+  {
+    path: 'geolocaizacion',
+    loadChildren: () => import('./Vistas/geolocaizacion/geolocaizacion.module').then( m => m.GeolocaizacionPageModule)
+  },
 ];
 
 @NgModule({
