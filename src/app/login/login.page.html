@@ -34,7 +34,7 @@
 
                   <ion-item>
                     <ion-label>Password</ion-label>
-                    <ion-input formControlName="password"></ion-input>
+                    <ion-input formControlName="password" type="password"></ion-input>
                   </ion-item>
 
                 </ion-list>
@@ -90,7 +90,7 @@
                             
                             <ion-item>
                             <ion-label>Email</ion-label>
-                            <ion-input></ion-input>
+                            <ion-input formControlName="correo"></ion-input>
                             </ion-item>
 
                             <ion-item>
@@ -100,7 +100,7 @@
 
                             <ion-item>
                             <ion-label>Password</ion-label>
-                            <ion-input  formControlName="password"></ion-input>
+                            <ion-input  formControlName="password" type="password"></ion-input>
                             </ion-item>
 
                         </ion-list>
@@ -111,6 +111,7 @@
                 <ion-col>
                     <ion-button type="submit"
                                 color="tertiary"
+                                (click)="Registrar()" [disabled]="RegisterForm.invalid"
                                 shape="round">
                         Crear usuario
                     </ion-button>

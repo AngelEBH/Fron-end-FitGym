@@ -42,6 +42,9 @@ export class LoginPage {
       user: new FormControl('', Validators.compose([
         Validators.required,
       ])),
+      correo: new FormControl('', Validators.compose([
+        Validators.required,
+      ])),
       password: new FormControl('', Validators.compose([
         Validators.required,
       ])),
@@ -143,7 +146,19 @@ ionViewDidEnter() {
       const loading = await this.loadingController.create({
       });
       await loading.present();
-       //console.log();
+      this.UsuariosService.UserRegister(
+        this.RegisterForm.get('user').value,
+        this.RegisterForm.get('correo').value,
+        this.RegisterForm.get('password').value).subscribe((data:any) => {
+          loading.dismiss();
+      
+      console.log(data);
+    
+      this.presentAlert('Datos correctos.')      
+        }, (error) => {
+          loading.dismiss();
+         
+        });
     }
   
 
