@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { DetalleInfinityGynPageRoutingModule } from './detalle-infinity-gyn-routing.module';
 
 import { DetalleInfinityGynPage } from './detalle-infinity-gyn.page';
+import { DepositModalComponent } from '../../deposit-modal/deposit-modal.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,7 @@ import { DetalleInfinityGynPage } from './detalle-infinity-gyn.page';
     IonicModule,
     DetalleInfinityGynPageRoutingModule
   ],
-  declarations: [DetalleInfinityGynPage]
+  declarations: [DetalleInfinityGynPage, DepositModalComponent],
+  entryComponents:[DepositModalComponent]
 })
 export class DetalleInfinityGynPageModule {}

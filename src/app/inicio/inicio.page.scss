@@ -1,9 +1,18 @@
-ion-card {
+ion-card{
     text-align: center;
     align-content: center;
     align-self: center;
+    
+    box-shadow: 0 4px 16px rgba(49, 138, 172, 1);
+    
+}
+
+ion-icon{
+    text-align: center;
+    font-size: 5em;
 }
 
 //ion-content {
     //--background: linear-gradient(197deg, rgb(175, 174, 174) 0%, rgb(184, 182, 182) 13.5%, rgba(29,29,29,1) 33.33%, rgba(0,0,0,1) 100%) !important;
  // }
+
