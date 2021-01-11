@@ -31,6 +31,18 @@ const routes: Routes = [
     path: 'geolocaizacion',
     loadChildren: () => import('./Vistas/geolocaizacion/geolocaizacion.module').then( m => m.GeolocaizacionPageModule)
   },
+  {
+    path: 'detalle-palermo-gym',
+    loadChildren: () => import('./Vistas/detalle-palermo-gym/detalle-palermo-gym.module').then( m => m.DetallePalermoGymPageModule)
+  },
+  {
+    path: 'detalle-cross-gym',
+    loadChildren: () => import('./Vistas/detalle-cross-gym/detalle-cross-gym.module').then( m => m.DetalleCrossGymPageModule)
+  },
+  {
+    path: 'procesos',
+    loadChildren: () => import('./Vistas/procesos/procesos.module').then( m => m.ProcesosPageModule)
+  },
 ];
 
 @NgModule({
