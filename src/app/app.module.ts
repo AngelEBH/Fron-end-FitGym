@@ -11,9 +11,10 @@ import { IonicStorageModule } from '@ionic/storage';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { from } from 'rxjs';
+import { PerfilPipe } from './Vistas/perfil.pipe';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, PerfilPipe],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), 
     IonicStorageModule.forRoot(),

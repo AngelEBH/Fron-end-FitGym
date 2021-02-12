@@ -43,6 +43,10 @@ const routes: Routes = [
     path: 'procesos',
     loadChildren: () => import('./Vistas/procesos/procesos.module').then( m => m.ProcesosPageModule)
   },
+  {
+    path: 'perfil',
+    loadChildren: () => import('./Vistas/perfil/perfil.module').then( m => m.PerfilPageModule)
+  },
 ];
 
 @NgModule({

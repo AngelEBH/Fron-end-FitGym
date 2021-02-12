@@ -19,6 +19,18 @@ const routes: Routes = [
   {
     path: 'rutina-pecho',
     loadChildren: () => import('./rutina-pecho/rutina-pecho.module').then( m => m.RutinaPechoPageModule)
+  },
+  {
+    path: 'rutina-triceps',
+    loadChildren: () => import('./rutina-triceps/rutina-triceps.module').then( m => m.RutinaTricepsPageModule)
+  },
+  {
+    path: 'rutina-hombros',
+    loadChildren: () => import('./rutina-hombros/rutina-hombros.module').then( m => m.RutinaHombrosPageModule)
+  },
+  {
+    path: 'rutina-piernas',
+    loadChildren: () => import('./rutina-piernas/rutina-piernas.module').then( m => m.RutinaPiernasPageModule)
   }
 ];
 
