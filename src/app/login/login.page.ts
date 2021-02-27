@@ -13,6 +13,7 @@ import { UsuariosService } from '../services/usuarios.service';
 export class LoginPage {
   loginForm:FormGroup;
   RegisterForm:FormGroup;
+  isError: boolean;
   @ViewChild('sLidePrincipal') slides: IonSlides;
  
   constructor(
