@@ -3,6 +3,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Storage } from '@ionic/storage';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
+import { Gimnasios } from '../Model/Gimnasios';
 
 @Injectable({
   providedIn: 'root'
@@ -21,5 +22,12 @@ export class UsuariosService {
       
     return this.http.post(`${environment.API_URL}usuario`, {UserName: user,CorreoElectronico:correo ,Password: password}, {headers : this.headers});
   }
+
+  getGimnasios()
+  {
+    this.http.get<Gimnasios[]>("./assets/config/gimnasios.json");
+  }
+  
+
 }
                       

@@ -47,6 +47,10 @@ const routes: Routes = [
     path: 'perfil',
     loadChildren: () => import('./Vistas/perfil/perfil.module').then( m => m.PerfilPageModule)
   },
+  {
+    path: 'detalle-rutina',
+    loadChildren: () => import('./Vistas/detalle-rutina/detalle-rutina.module').then( m => m.DetalleRutinaPageModule)
+  },
 ];
 
 @NgModule({
