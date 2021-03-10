@@ -1,0 +1,75 @@
+.mainSlide, .mainSlide ion-slide {
+    width: 100%;
+    height: 100%;
+  }
+  
+  img {
+    width: 120px;
+  }
+  
+  .pick-avatar {
+    width: 80px;
+    opacity: 0.3;
+  }
+  
+  .pick-avatar-seleccionado {
+    transition: opacity 0.5s linear;
+    opacity: 1 !important;
+  }
+  //ion-content {
+   // --background: url('/assets/img/fondoGym.jpg') 0 0/100% 100% no-repeat;
+  //}
+  
+  
+  :host {
+    ion-content {
+      //--background: linear-gradient(135deg, #FF8C00, #D2691E);
+      --background: linear-gradient(100deg, #10d4f6, #54f4fa);
+    }
+  }
+  
+  .pst-wrap-form{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100%;
+  position: relative;
+  z-index: 100;
+  background: rgba(0,0,0,0.4);
+  }
+  .brand-logo{
+  
+        width: 100px;
+        height: 100px;
+        margin: 8px auto 8px;
+        background-size: 50%;
+       margin-left: 30%;
+        
+  }
+  .img-bg{
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  img{
+    height: 100%;
+    min-width: auto;
+    max-width: unset;
+  }
+  }
+  
+  ion-list{
+  background: transparent;
+  }
+  
+  
+  .loginButton{
+  background-color: black;
+  color: white;
+  border-radius: 25px;
+  padding: 20px;
+  width: 200px;
+  height: 50px;
+  }

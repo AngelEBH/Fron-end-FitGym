@@ -51,6 +51,22 @@ const routes: Routes = [
     path: 'detalle-rutina',
     loadChildren: () => import('./Vistas/detalle-rutina/detalle-rutina.module').then( m => m.DetalleRutinaPageModule)
   },
+  {
+    path: 'registrar',
+    loadChildren: () => import('./login/registrar/registrar-routing.module').then( m => m.RegistrarPageRoutingModule)
+  },
+  {
+    path: 'cliente',
+    loadChildren: () => import('./login/cliente/cliente.module').then( m => m.ClientePageModule)
+  },
+  {
+    path: 'administrador',
+    loadChildren: () => import('./login/administrador/administrador-routing.module').then( m => m.AdministradorPageRoutingModule)
+  },
+  {
+    path: 'grupos',
+    loadChildren: () => import('./Vistas/grupos/grupos.module').then( m => m.GruposPageModule)
+  },
 ];
 
 @NgModule({

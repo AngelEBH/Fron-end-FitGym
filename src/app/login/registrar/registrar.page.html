@@ -1,9 +1,47 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Registrar</ion-title>
+  <ion-toolbar color="tertiary">
+    <ion-buttons slot="start">
+      <ion-back-button 
+        defaultHref="/login"  
+        color="dark">
+      </ion-back-button>
+    </ion-buttons>
+    <ion-title>Que tipo de usuario eres?</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-padding">
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
 
+ 
+    <div id="image">
+      <img src="/assets/avatars/logo.png">
+    </div>
+  <ion-card>
+
+    <ion-card-content>
+
+      <ion-row>
+        <ion-col>
+          <ion-card color="warning" (click)="registroClientes()" >
+            <ion-card-content>
+              Cliente
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+        <ion-col>
+          <ion-card color="warning" (click)="registroAdministradores()">
+            <ion-card-content>
+              Administrador
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+      
+    </ion-card-content>
+  </ion-card>
 </ion-content>

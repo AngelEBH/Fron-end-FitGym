@@ -1,171 +1,71 @@
 
-<ion-header>
-  <ion-toolbar color="tertiary">
-    <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
-    </ion-buttons>
-    <ion-title style="text-align-last: center;">FytGym</ion-title>
-  </ion-toolbar>
-</ion-header>
 
 <ion-content>
+	<div class="pst-wrap-form pdl-30 pdr-30">
+		<div class="wrapper-form pdl-30 pdr-30">
+			<div class="mgt-30 mgb-20">
+				<br>
+				<img class="brand-logo" src="/assets/avatars/logo.png">
+				<h3 class="uppercase txt-light fw-600 fs-20 spacing-2 mgl-20 pdt-0" style="text-align-last: center;">Fit Gym</h3>
+				<p class="pdl-20 fs-12 txt-warning">Ven a Entrenar </p>
+			</div>
+			<div text-right class="mgr--10">
+				<ion-button size="small" fill="clear" shape="round"  class="txt-light fs-16 capitalize">
+					Unete
+					<ion-icon slot="end" name="logo-facebook"></ion-icon>
+				</ion-button>
+			</div>
 
-  <ion-slides class="mainSlide" #sLidePrincipal>    
-    <ion-slide>
+			<br>
 
-      <form [formGroup]="loginForm">
-        <ion-grid fixed>
-          <ion-row>
-            <ion-col>
-            
-             <img src="/assets/avatars/logo.png">
-            </ion-col>
-          </ion-row>
-        
-          <ion-row>
-            <ion-col>
-              
-                <ion-list>
-                  
-                  <ion-item>
-                    <ion-label>Usuario</ion-label>
-                    <ion-input formControlName="user"></ion-input>
-                  </ion-item>
+			<form [formGroup]="loginForm"  novalidate>
+				<ion-label stacked class="mgb-5 fs-13 txt-light">Correo</ion-label>
+				<ion-list class="ani-bottom-to-top mgb-0 mgt-5">
+					<ion-item class="black-opct bdra-30">
+						<ion-input #email  type="email" formControlName="user" placeholder="Ingresa tu correo electronico" class=""></ion-input>
+					</ion-item>
+				</ion-list>
+				
+				<!--<div class="error-message" *ngIf="!isError" >
+					<p class="fs-11 mgt-5 txt-warning">Porfavor ingresa un correo valido</p>
+				</div>-->
 
-                  <ion-item>
-                    <ion-label>Password</ion-label>
-                    <ion-input formControlName="password" type="password"></ion-input>
-                  </ion-item>
+				<br>
+				
+				<ion-label stacked class="mgb-5 fs-13 txt-light">Contraseña</ion-label>
+				<ion-list class="ani-bottom-to-top mgb-0 mgt-5">
+					<ion-item class="white-opct bdra-30">
+						<ion-input #password formControlName="password" type="password" placeholder="Ingresa tu contraseña" 
+					 class=""></ion-input>
+					</ion-item>
+				</ion-list>
 
-                </ion-list>
-            </ion-col>
-          </ion-row>
+				<!--<div class="error-message" *ngIf="!isError" >
+					<p class="fs-11 mgt-5 mgb-0 txt-warning">Tu contraseña debe ser almenos de 6 caracteres</p>
+				</div>-->
 
-          <ion-row>
-            <ion-col>
-              <ion-button type="submit"
-                          color="tertiary"
-                          (click)="login()" [disabled]="loginForm.invalid"
-                          shape="round">
-                          
-                Login
-              </ion-button>
-            </ion-col>
-          </ion-row>
+				<div text-right class="mgb-10 ovfl-auto">
+					<ion-button fill="clear" size="small" class="capitalize txt-light fs-12 txt3 pull-right pdr-0 fw-300" [routerLink]="'/forgot'">
+						olvide mi contraseña
+					</ion-button>
+				</div>
 
-        </ion-grid>
-      </form>
-    
+				<ion-button expand="block" shape="round" color="secundary" class="loginButton" type="submit" (click)="login()" [disabled]="loginForm.invalid">
+					Ingresar
+				</ion-button>
 
+				<br>
 
-    </ion-slide>
+				<div class="text-center">
+					<ion-button fill="clear" expand="block" text-center size="small" class="fs-12 txt-light capitalize fw-300 mgt-0" [routerLink]="'/registrar'">
+						Aun no formas parte?, registrate!
+					</ion-button>
+				</div>
 
-    <ion-slide>
+				<br>
 
-      
-      <ion-grid fixed>
-
-            <ion-row>
-            <ion-col>
-                <h3>FytGym</h3>
-            </ion-col>
-            </ion-row>
-
-            <ion-row>
-            <ion-col>
-                <ion-slides>
-                <ion-slide *ngFor="let avatar of [1,1,1,1,1,1,1]">
-                    <ion-img class="pick-avatar" 
-                            src="/assets/avatars/deportista.png"></ion-img>
-                </ion-slide>
-                </ion-slides>
-            </ion-col>
-            </ion-row>
-        
-            <form [formGroup]="RegisterForm">
-                <ion-row>
-                    <ion-col>
-                        
-                        <ion-list>
-                            
-                            <ion-item>
-                            <ion-label>Email</ion-label>
-                            <ion-input formControlName="correo"></ion-input>
-                            </ion-item>
-
-                            <ion-item>
-                            <ion-label>Nombre</ion-label>
-                            <ion-input formControlName="user"></ion-input>
-                            </ion-item>
-
-                            <ion-item>
-                            <ion-label>Password</ion-label>
-                            <ion-input  formControlName="password" type="password"></ion-input>
-                            </ion-item>
-
-                        </ion-list>
-                    </ion-col>
-                </ion-row>
-                
-                <ion-row>
-                <ion-col>
-                    <ion-button type="submit"
-                                color="tertiary"
-                                (click)="Registrar()" [disabled]="RegisterForm.invalid"
-                                shape="round">
-                        Crear usuario
-                    </ion-button>
-                </ion-col>
-            </ion-row>
-            
-            </form>
-        </ion-grid>
-  
-  
-      </ion-slide>
-
-
-  </ion-slides>
-
-
+			</form>
+		</div>
+	</div>
 
 </ion-content>
-
-
-<ion-footer no-border>
-  <ion-toolbar>
-    
-    <ion-row>
-
-      <ion-col>
-          <ion-button shape="round"
-                      expand="full"
-                      size="small"
-                      fill="outline"
-                      color="tertiary"
-                      (click)="mostrarLogin()"
-                      >                    
-                      
-                    
-            Ingresar
-          </ion-button>
-      </ion-col>
-
-      <ion-col>
-        <ion-button shape="round"
-                    expand="full"
-                    size="small"
-                    fill="outline"
-                    color="tertiary"
-                    (click)="mostrarRegisto()"
-                   >
-          Registrarme
-        </ion-button>
-      </ion-col>
-
-    </ion-row>
-
-
-
-  </ion-toolbar>
-</ion-footer>

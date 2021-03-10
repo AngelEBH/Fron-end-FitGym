@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-title>Administrador</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/registrar"></ion-back-button>
+    </ion-buttons>
+    
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content>
+	<div class="pst-wrap-form pdl-30 pdr-30">
+		<div class="wrapper-form pdl-30 pdr-30">
+			<div class="mgt-30 mgb-20">
+				<br>
+				<img class="brand-logo" src="/assets/avatars/logo.png">
+				<h3 class="uppercase txt-light fw-600 fs-20 spacing-2 mgl-20 pdt-0" style="text-align-last: center;">Fit Gym</h3>
+	
+			</div>
+	
+			<br>
+
+			<form >
+				<ion-label stacked class="mgb-5 fs-13 txt-light">Correo</ion-label>
+				<ion-list class="ani-bottom-to-top mgb-0 mgt-5">
+					<ion-item class="black-opct bdra-30">
+						<ion-input #email  type="email" placeholder="Ingresa tu correo electronico" class=""></ion-input>
+					</ion-item>
+				</ion-list>
+				
+				<br>
+        <ion-label stacked class="mgb-5 fs-13 txt-light">Usuario</ion-label>
+				<ion-list class="ani-bottom-to-top mgb-0 mgt-5">
+					<ion-item class="white-opct bdra-30">
+						<ion-input #password  type="text" placeholder="Ingresa tu contraseña" 
+					 class=""></ion-input>
+					</ion-item>
+				</ion-list>
+				
+				<ion-label stacked class="mgb-5 fs-13 txt-light">Contraseña</ion-label>
+				<ion-list class="ani-bottom-to-top mgb-0 mgt-5">
+					<ion-item class="white-opct bdra-30">
+						<ion-input #password  type="password" placeholder="Ingresa tu contraseña" 
+					 class=""></ion-input>
+					</ion-item>
+				</ion-list>
+        
+        <br>
+
+				<ion-button expand="block" shape="round" color="secundary" class="loginButton" type="submit">
+					Registrar
+				</ion-button>
+
+	
+
+			</form>
+		</div>
+	</div>
+
+</ion-content>
+
