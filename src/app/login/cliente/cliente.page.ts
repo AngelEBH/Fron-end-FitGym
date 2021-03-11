@@ -48,7 +48,7 @@ export class ClientePage {
 
     await alert.present();
   }
-
+     
   async Registrar(){
     const loading = await this.loadingController.create({
     });

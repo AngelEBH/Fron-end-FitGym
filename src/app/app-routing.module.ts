@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import {AuthGuard} from "./guards/auth.guard";
 
 const routes: Routes = [
   {
@@ -9,7 +10,8 @@ const routes: Routes = [
   {
     path: '',
     redirectTo: 'login',
-    pathMatch: 'full'
+    pathMatch: 'full',
+    canActivate: [AuthGuard ]
   },
   {
     path: 'inicio',
@@ -66,6 +68,10 @@ const routes: Routes = [
   {
     path: 'grupos',
     loadChildren: () => import('./Vistas/grupos/grupos.module').then( m => m.GruposPageModule)
+  },
+  {
+    path: 'pixel-pay',
+    loadChildren: () => import('./Vistas/pixel-pay/pixel-pay.module').then( m => m.PixelPayPageModule)
   },
 ];
 
