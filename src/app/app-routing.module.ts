@@ -79,6 +79,14 @@ const routes: Routes = [
     path: 'administrador',
     loadChildren: () => import('./administrador/administrador.module').then( m => m.AdministradorPageModule)
   },
+  {
+    path: 'rutina-gimnasio',
+    loadChildren: () => import('./Vistas/perfil/rutina-gimnasio/rutina-gimnasio.module').then( m => m.RutinaGimnasioPageModule)
+  },
+  {
+    path: 'proceso-gimnasio',
+    loadChildren: () => import('./Vistas/perfil/proceso-gimnasio/proceso-gimnasio.module').then( m => m.ProcesoGimnasioPageModule)
+  },
 ];
 
 @NgModule({
