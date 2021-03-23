@@ -22,11 +22,11 @@
 	
 			<br>
 
-			<form >
+			<form [formGroup]="RegisterForm" novalidate>
 				<ion-label stacked class="mgb-5 fs-13 txt-light">Correo</ion-label>
 				<ion-list class="ani-bottom-to-top mgb-0 mgt-5">
 					<ion-item class="black-opct bdra-30">
-						<ion-input #email  type="email" placeholder="Ingresa tu correo electronico" class=""></ion-input>
+						<ion-input #correo  type="email" formControlName="correo" placeholder="Ingresa tu correo electronico" class=""></ion-input>
 					</ion-item>
 				</ion-list>
 				
@@ -34,7 +34,7 @@
         <ion-label stacked class="mgb-5 fs-13 txt-light">Usuario</ion-label>
 				<ion-list class="ani-bottom-to-top mgb-0 mgt-5">
 					<ion-item class="white-opct bdra-30">
-						<ion-input #password  type="text" placeholder="Ingresa tu contraseña" 
+						<ion-input #user formControlName="user"  type="text" placeholder="Ingresa su nomnbre" 
 					 class=""></ion-input>
 					</ion-item>
 				</ion-list>
@@ -42,14 +42,14 @@
 				<ion-label stacked class="mgb-5 fs-13 txt-light">Contraseña</ion-label>
 				<ion-list class="ani-bottom-to-top mgb-0 mgt-5">
 					<ion-item class="white-opct bdra-30">
-						<ion-input #password  type="password" placeholder="Ingresa tu contraseña" 
+						<ion-input #password formControlName="password"  type="password" placeholder="Ingresa tu contraseña" 
 					 class=""></ion-input>
 					</ion-item>
 				</ion-list>
         
         <br>
 
-				<ion-button expand="block" shape="round" color="secundary" class="loginButton" type="submit">
+				<ion-button expand="block" shape="round" color="secundary" class="loginButton" type="submit"  (click)="Registrar()">
 					Registrar
 				</ion-button>
 

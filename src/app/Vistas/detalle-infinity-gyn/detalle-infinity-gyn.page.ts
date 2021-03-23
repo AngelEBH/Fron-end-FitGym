@@ -46,6 +46,19 @@ export class DetalleInfinityGynPage implements OnInit {
     await alert.present();
   }
 
+  async Membresia() {
+    const alert = await this.alertController.create({
+      cssClass: 'my-custom-class',
+      header: 'Costo Membresia',
+      
+      message: ' 600lps ',
+      
+      buttons: ['OK']
+    });
+
+    await alert.present();
+  }
+
   async presentAlertPrompt() {
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',

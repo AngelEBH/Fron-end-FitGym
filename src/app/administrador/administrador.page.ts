@@ -1,27 +1,28 @@
-import { Component, Injectable, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AlertController, LoadingController, ToastController } from '@ionic/angular';
-import { UsuariosService  } from '../../services/usuarios.service';
+import { LoadingController, ToastController, AlertController } from '@ionic/angular';
+import { UsuariosService  } from '../services/usuarios.service';
 
 @Component({
-  selector: 'app-cliente',
-  templateUrl: './cliente.page.html',
-  styleUrls: ['./cliente.page.scss'],
+  selector: 'app-administrador',
+  templateUrl: './administrador.page.html',
+  styleUrls: ['./administrador.page.scss'],
 })
-
-export class ClientePage {
-  loginForm:FormGroup;
+export class AdministradorPage{
   RegisterForm:FormGroup;
   isError: boolean;
 
-  constructor(    private router: Router,
+  constructor(
+    private router: Router,
     private UsuariosService:UsuariosService,
-    public toastController: ToastController,
+   
     public loadingController: LoadingController,
     public formBuilder: FormBuilder,
     public alertController: AlertController
+  
   ) { 
+
     this.RegisterForm = this.formBuilder.group({
       user: new FormControl('', Validators.compose([
         Validators.required,
@@ -48,18 +49,18 @@ export class ClientePage {
 
     await alert.present();
   }
-     
+
   async Registrar(){
     const loading = await this.loadingController.create({
     });
     await loading.present();
-    this.UsuariosService.UserRegister(
+    this.UsuariosService.AdminRegister(
       this.RegisterForm.get('user').value,
       this.RegisterForm.get('correo').value,
       this.RegisterForm.get('password').value).subscribe((data:any) => {
         loading.dismiss();
     
-    //console.log(data);
+    console.log(data);
   
     this.presentAlert('Datos correctos.')      
       }, (error) => {
@@ -67,4 +68,5 @@ export class ClientePage {
        
       });
   }
+
 }

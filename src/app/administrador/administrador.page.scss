@@ -16,15 +16,17 @@
     transition: opacity 0.5s linear;
     opacity: 1 !important;
   }
- 
+  //ion-content {
+   // --background: url('/assets/img/fondoGym.jpg') 0 0/100% 100% no-repeat;
+  //}
   
   
-  //:host {
+  :host {
     ion-content {
       //--background: linear-gradient(135deg, #FF8C00, #D2691E);
       --background: linear-gradient(100deg, #10d4f6, #54f4fa);
     }
-  //}
+  }
   
   .pst-wrap-form{
   display: flex;

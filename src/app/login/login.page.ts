@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { AlertController, IonSlides, LoadingController, ToastController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 import { UsuariosService } from '../services/usuarios.service';
+import { usuario } from '../Model/usuarios';
+//import { debug } from 'console';
 
 @Component({
   selector: 'app-login',
@@ -13,6 +15,7 @@ import { UsuariosService } from '../services/usuarios.service';
 export class LoginPage {
   loginForm:FormGroup;
   RegisterForm:FormGroup;
+  UsuarioPersona = new Array<usuario>();
   isError: boolean;
   @ViewChild('sLidePrincipal') slides: IonSlides;
  
@@ -53,32 +56,14 @@ export class LoginPage {
         Validators.required,
       ]))
     });
-  }
-  
- 
+   }
 
-//ionViewDidEnter() {
- // this.slides.lockSwipes( true );
-//}
 
   ngOnInit() {
     
   }
   
 
-  /*mostrarRegisto() {
-    this.slides.lockSwipes( false );
-    this.slides.slideTo(1);
-    this.slides.lockSwipes( true );
-  }
-
-  mostrarLogin() {
-    this.slides.lockSwipes( false );
-    this.slides.slideTo(0);
-    this.slides.lockSwipes( true );
-  }*/
-
- 
 
   async login(){
    
@@ -86,48 +71,50 @@ export class LoginPage {
     const loading = await this.loadingController.create({
     });
     await loading.present();
-    this.UsuariosService.UserLogin(
+    this.UsuariosService.UserLogin2(
       this.loginForm.get('user').value,
-      this.loginForm.get('password').value).subscribe((data:any) => {
+      this.loginForm.get('password').value).subscribe((user:usuario) => {
         loading.dismiss();
     
-    console.log(data);
-  
-    this.presentAlert('Datos correctos.')
-    this.router.navigate(['/inicio']);
+        if(user.rolesId == 2)
+        {
+          this.UsuariosService.GetInfoUsuarioPersona(user.userName, user.correoElectronico).subscribe((usuariopersona) => {
+            loading.dismiss();
+            
+            this.UsuarioPersona = usuariopersona;
+            this.storage.set('userAuth', user);
+            this.router.navigate(['/inicio']);
+
+          });
+        }
+        else
+        {
+          this.storage.set('userAuth', user);
+          this.router.navigate(['/inicio']);
+        }
       }, (error) => {
         loading.dismiss();
-       
+        this.presentAlert('Datos incorrectos.')
       });
+
     }
 
     async presentAlert(msj) {
       const alert = await this.alertController.create({
-        header: 'Success',
+        header: 'Error',
         message: msj,
       });
   
       await alert.present();
     }
-
-    async Registrar(){
-      const loading = await this.loadingController.create({
-      });
-      await loading.present();
-      this.UsuariosService.UserRegister(
-        this.RegisterForm.get('user').value,
-        this.RegisterForm.get('correo').value,
-        this.RegisterForm.get('password').value).subscribe((data:any) => {
-          loading.dismiss();
-      
-      console.log(data);
     
-      this.presentAlert('Datos correctos.')      
-        }, (error) => {
-          loading.dismiss();
-         
-        });
-    }
+    async SuccesAlert(msj) {
+      const alert = await this.alertController.create({
+        header: 'Succes',
+        message: msj
+      });
   
-
+      await alert.present();
+    }
+    
 }

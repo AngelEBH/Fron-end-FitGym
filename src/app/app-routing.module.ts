@@ -1,21 +1,26 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import {AuthGuard} from "./guards/auth.guard";
+import { AuthGuardService } from './guard/auth-guard.service';
+import { LoginGuardService } from './guard/login-guard.service';
+
 
 const routes: Routes = [
-  {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
-  },
+  // {
+  //   path: '',
+  //   loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule),
+  //   canActivate: [AuthGuardService],
+  // },
   {
     path: '',
     redirectTo: 'login',
     pathMatch: 'full',
-    canActivate: [AuthGuard ]
-  },
+    canActivate: [LoginGuardService]
+  
+   },
   {
     path: 'inicio',
-    loadChildren: () => import('./inicio/inicio.module').then( m => m.InicioPageModule)
+    loadChildren: () => import('./inicio/inicio.module').then( m => m.InicioPageModule),
+    canActivate: [AuthGuardService],
   },
   {
     path: 'login',
@@ -61,10 +66,7 @@ const routes: Routes = [
     path: 'cliente',
     loadChildren: () => import('./login/cliente/cliente.module').then( m => m.ClientePageModule)
   },
-  {
-    path: 'administrador',
-    loadChildren: () => import('./login/administrador/administrador-routing.module').then( m => m.AdministradorPageRoutingModule)
-  },
+
   {
     path: 'grupos',
     loadChildren: () => import('./Vistas/grupos/grupos.module').then( m => m.GruposPageModule)
@@ -72,6 +74,10 @@ const routes: Routes = [
   {
     path: 'pixel-pay',
     loadChildren: () => import('./Vistas/pixel-pay/pixel-pay.module').then( m => m.PixelPayPageModule)
+  },
+  {
+    path: 'administrador',
+    loadChildren: () => import('./administrador/administrador.module').then( m => m.AdministradorPageModule)
   },
 ];
 

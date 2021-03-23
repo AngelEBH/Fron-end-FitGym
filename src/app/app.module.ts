@@ -12,6 +12,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { from } from 'rxjs';
 import { PerfilPipe } from './Vistas/perfil.pipe';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent, PerfilPipe],
@@ -19,6 +20,7 @@ import { PerfilPipe } from './Vistas/perfil.pipe';
   imports: [BrowserModule, IonicModule.forRoot(), 
     IonicStorageModule.forRoot(),
     AppRoutingModule,
+    ReactiveFormsModule,
     HttpClientModule
   ],
   providers: [
