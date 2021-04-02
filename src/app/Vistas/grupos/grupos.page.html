@@ -9,55 +9,25 @@
 </ion-header>
 
 <ion-content fullscreen>
+  <div>
   <ion-list>
     <ion-list-header>
       Entrenadores 
     </ion-list-header>
 
-    <ion-item>
+    <ion-item *ngFor="let item of detalle">
       <ion-avatar slot="start">
         <img src="/assets/avatars/logo.png">
       </ion-avatar>
       <ion-label>
-        <h2>Almilcar</h2>
+        <h2>{{item.nombreEntrenador}}</h2>
+        <h3>{{item.telefono}}</h3>
         <h3>Fisiculturista</h3>
         <p>Rutinas</p>
       </ion-label>
     </ion-item>
 
-    <ion-item>
-      <ion-avatar slot="start">
-        <img src="/assets/avatars/logo.png">
-      </ion-avatar>
-      <ion-label>
-        <h2>Viviana</h2>
-        <h3>Nutricionista</h3>
-        <p>Rutina</p>
-      </ion-label>
-    </ion-item>
-
-    <ion-item>
-      <ion-avatar slot="start">
-        <img src="/assets/avatars/logo.png">
-      </ion-avatar>
-      <ion-label>
-        <h2>Josue</h2>
-        <h3>Entrenador</h3>
-        <p>Rutina</p>
-      </ion-label>
-    </ion-item>
-
-    <ion-item>
-      <ion-avatar slot="start">
-        <img src="/assets/avatars/logo.png">
-      </ion-avatar>
-      <ion-label>
-        <h2>Cristian</h2>
-        <h3>Entrenador</h3>
-        <p>Rutina</p>
-      </ion-label>
-    </ion-item>
   </ion-list>
 
- 
+</div>
 </ion-content>

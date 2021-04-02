@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import {  LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 import {HttpClientModule} from '@angular/common/http';
@@ -13,6 +13,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { from } from 'rxjs';
 import { PerfilPipe } from './Vistas/perfil.pipe';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+import { NgCalendarModule } from 'ionic2-calendar';
+import { CalModalPageModule } from './Componente/cal-modal/cal-modal.module';
+import { registerLocaleData } from '@angular/common';
+import localDe from '@angular/common/locales/de'
+registerLocaleData(localDe);
+
 
 @NgModule({
   declarations: [AppComponent, PerfilPipe],
@@ -21,12 +28,16 @@ import { ReactiveFormsModule } from '@angular/forms';
     IonicStorageModule.forRoot(),
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxDatatableModule,
+    NgCalendarModule,
+    CalModalPageModule
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy}
   ],
   bootstrap: [AppComponent]
 })

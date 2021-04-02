@@ -7,9 +7,11 @@ import { IonicModule } from '@ionic/angular';
 import { ProcesoGimnasioPageRoutingModule } from './proceso-gimnasio-routing.module';
 
 import { ProcesoGimnasioPage } from './proceso-gimnasio.page';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 @NgModule({
   imports: [
+    NgxDatatableModule,
     CommonModule,
     FormsModule,
     IonicModule,

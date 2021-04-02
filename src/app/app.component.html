@@ -1,5 +1,4 @@
 <ion-app>
-
   <ion-menu side="start" menuId="first" contentId="main">
     <ion-header>
       <ion-toolbar color="primary">
@@ -11,17 +10,29 @@
       <div class="header-content">
         <img src="/assets/avatars/logo.png" alt=""> 
       </div>
-      <ion-list lines="none" class="menu-items">
-        <ion-menu-toggle>        
-        <ion-item><ion-icon name="barbell-outline" routerLink="/gimnasios"></ion-icon> gimnasios </ion-item>
-        <ion-item> <ion-icon name="location-outline" routerLink="/geolocaizacion"></ion-icon>ubicacion</ion-item>
-        <ion-item> <ion-icon name="cash-outline" routerLink="/pixel-pay"></ion-icon>pago</ion-item>
-        <ion-item><ion-icon name="flash" routerLink="/procesos"></ion-icon>rutinas</ion-item>
-        <ion-item class="active"> <ion-icon name="exit-outline" (click)="logout()" routerLink="/login"></ion-icon>Cerrar session</ion-item>
-      </ion-menu-toggle>
-      </ion-list>
+      <div *ngIf="rolesId==2"> 
+        <ion-list lines="none" class="menu-items">
+          <ion-menu-toggle>        
+          <ion-item><ion-icon name="barbell-outline" routerLink="/gimnasios"></ion-icon> gimnasios </ion-item>
+          <ion-item> <ion-icon name="location-outline" routerLink="/geolocaizacion"></ion-icon>ubicacion</ion-item>
+          <ion-item> <ion-icon name="cash-outline" routerLink="/pixel-pay"></ion-icon>pago</ion-item>
+          <ion-item><ion-icon name="flash" routerLink="/procesos"></ion-icon>rutinas</ion-item>
+          <ion-item class="active"> <ion-icon name="exit-outline" (click)="logout()" routerLink="/login"></ion-icon>Cerrar session</ion-item>
+        </ion-menu-toggle>
+        </ion-list>
+      </div>
+
+      <div *ngIf="rolesId==1"> 
+        <ion-list lines="none" class="menu-items">
+          <ion-menu-toggle>        
+          <ion-item><ion-icon name="barbell-outline" routerLink="/gimnasios"></ion-icon> gimnasios </ion-item>
+          <ion-item> <ion-icon name="location-outline" routerLink="/geolocaizacion"></ion-icon>Afiliados</ion-item>         
+          <ion-item class="active"> <ion-icon name="exit-outline" (click)="logout()" routerLink="/login"></ion-icon>Cerrar session</ion-item>
+        </ion-menu-toggle>
+        </ion-list>
+      </div>
+    
     </ion-content>
   </ion-menu>
-
   <ion-router-outlet id="main"></ion-router-outlet>
 </ion-app>

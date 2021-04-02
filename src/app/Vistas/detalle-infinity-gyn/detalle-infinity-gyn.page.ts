@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { DepositModalComponent } from '../../deposit-modal/deposit-modal.component';
 import { AlertController } from '@ionic/angular';
+import { Gimnasios } from 'src/app/Model/Gimnasios';
+import { Storage } from '@ionic/storage';
+import { GimnasioService } from 'src/app/services/gimnasio.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-detalle-infinity-gyn',
@@ -9,7 +13,10 @@ import { AlertController } from '@ionic/angular';
   styleUrls: ['./detalle-infinity-gyn.page.scss'],
 })
 export class DetalleInfinityGynPage implements OnInit {
- 
+  public IdGimnasio :  number;
+  public nombre: string;
+  public telefono: string;
+  detalle: Gimnasios[] = [];
   accounts = [
      {
        name: "Angel",
@@ -20,7 +27,10 @@ export class DetalleInfinityGynPage implements OnInit {
       balance: 1200
      }
   ];
-  constructor(private modalCtrl: ModalController,private alertController: AlertController) { }
+  constructor(private modalCtrl: ModalController,private alertController: AlertController,private gimnasioService:GimnasioService,
+    public storage: Storage, private router: Router,
+    private route: ActivatedRoute,
+    ) { this.IdGimnasio = this.route.snapshot.queryParams['IdGimnasio'] }
   async presentAlert() {
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
@@ -38,7 +48,7 @@ export class DetalleInfinityGynPage implements OnInit {
       cssClass: 'my-custom-class',
       header: 'Contactos',
       
-      message: 'luis inestrosa : 98554567 ',
+      message:  this.nombre +'-'+ this.telefono,
       
       buttons: ['OK']
     });
@@ -59,88 +69,7 @@ export class DetalleInfinityGynPage implements OnInit {
     await alert.present();
   }
 
-  async presentAlertPrompt() {
-    const alert = await this.alertController.create({
-      cssClass: 'my-custom-class',
-      header: 'Prompt!',
-      inputs: [
-        {
-          name: 'name1',
-          type: 'text',
-          placeholder: 'Placeholder 1'
-        },
-        {
-          name: 'name2',
-          type: 'text',
-          id: 'name2-id',
-          value: 'hello',
-          placeholder: 'Placeholder 2'
-        },
-        // multiline input.
-        {
-          name: 'paragraph',
-          id: 'paragraph',
-          type: 'textarea',
-          placeholder: 'Placeholder 3'
-        },
-        {
-          name: 'name3',
-          value: 'http://ionicframework.com',
-          type: 'url',
-          placeholder: 'Favorite site ever'
-        },
-        // input date with min & max
-        {
-          name: 'name4',
-          type: 'date',
-          min: '2017-03-01',
-          max: '2018-01-12'
-        },
-        // input date without min nor max
-        {
-          name: 'name5',
-          type: 'date'
-        },
-        {
-          name: 'name6',
-          type: 'number',
-          min: -5,
-          max: 10
-        },
-        {
-          name: 'name7',
-          type: 'number'
-        },
-        {
-          name: 'name8',
-          type: 'password',
-          placeholder: 'Advanced Attributes',
-          cssClass: 'specialClass',
-          attributes: {
-            maxlength: 4,
-            inputmode: 'decimal'
-          }
-        }
-      ],
-      buttons: [
-        {
-          text: 'Cancel',
-          role: 'cancel',
-          cssClass: 'secondary',
-          handler: () => {
-            console.log('Confirm Cancel');
-          }
-        }, {
-          text: 'Ok',
-          handler: () => {
-            console.log('Confirm Ok');
-          }
-        }
-      ]
-    });
 
-    await alert.present();
-  }
    async openModal(){
     const modal = await this.modalCtrl.create({
          component: DepositModalComponent
@@ -149,6 +78,19 @@ export class DetalleInfinityGynPage implements OnInit {
      await modal.present();
   }
   ngOnInit() {
+    this.getByGimnasio();
+  }
+
+  getByGimnasio()
+  {
+    
+    this.gimnasioService.getByGimnasios(this.IdGimnasio).subscribe(detalle =>{
+          this.nombre = detalle[0].dueño;
+          this.telefono = detalle[0].contacto;
+          
+        return this.detalle = detalle
+      
+    });
   }
 
 }

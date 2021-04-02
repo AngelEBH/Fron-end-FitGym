@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar color="tertiary">
-    <ion-title>Procesos</ion-title>
+    <ion-title>Rutinas</ion-title>
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/perfil"></ion-back-button>
     </ion-buttons>
@@ -8,25 +8,22 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-margin">
-  <ion-grid class="ion-margin">
-    <ion-row>
-      <ion-col>Lunes</ion-col>
-      <ion-col>Martes</ion-col>
-      <ion-col>Miercoles</ion-col>
-      <ion-col>Jueves</ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>hola</ion-col>
-      <ion-col>hola</ion-col>
-      <ion-col>hola</ion-col>
-      <ion-col>hola</ion-col>
-    </ion-row>
-  </ion-grid>
+<ion-content>
+  <div class="ion-padding">
 
-  <ion-item lines="none">
-    <ion-button color="primary" size="small" slot="end">
-      Material Design Table
-    </ion-button>
-  </ion-item>
+    <!-- Theme classes dark, material, bootstrap -->
+    <ngx-datatable 
+      class="dark"    
+      [ngClass]="tableStyle"
+      [rows]="rows" 
+      [rowHeight]="80"
+      [columns]="columns"
+      [columnMode]="'force'"     
+      [headerHeight]="50"      
+      [scrollbarH]="true"
+      [scrollbarV]="true">
+    </ngx-datatable>
+
+  </div>
+
 </ion-content>

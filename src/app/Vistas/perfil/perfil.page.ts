@@ -1,5 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
+import { Storage } from '@ionic/storage';
+import { usuario } from 'src/app/Model/usuarios';
+import { UsuariosService } from '../../services/usuarios.service'
+
+import { GimnasioService } from '../../services/gimnasio.service';
+import { Afiliado } from 'src/app/Model/Afiliado';
 
 @Component({
   selector: 'app-perfil',
@@ -7,11 +14,64 @@ import { AlertController } from '@ionic/angular';
   styleUrls: ['./perfil.page.scss'],
 })
 export class PerfilPage implements OnInit {
-  
+  public userName: string;
+ 
+  public nombres: string;
+  public rolesId: number;
+  public IdUsuario: number;
+  UsuarioPersona = new Array<usuario>();
+  detalle : Afiliado [] = [];
 
-  constructor(private alertController: AlertController) { }
+  constructor(private alertController: AlertController,private storage: Storage,
+    private route: ActivatedRoute,
+    private router: Router,
+    private usuariosService:UsuariosService,
+    private gimnasioService:GimnasioService) { }
 
   ngOnInit() {
+    this.getDatos();
+    
+  }
+
+  getDatos()
+  {
+    this.storage.get('userAuth').then((data) => { 
+      
+      this.userName = data.userName;     
+      this.rolesId = data.rolesId;
+      this.IdUsuario = data.id;
+      
+      if(data.rolesId == 1)
+      {
+        this.usuariosService.GetInfoUsuarioPersona(data.userName, data.correoElectronico).subscribe((UsuarioPersona)=>{
+          this.UsuarioPersona = UsuarioPersona;
+       
+        })
+      }
+      this.getInfoAfiliado();
+    });
+  }
+
+  getInfoAfiliado()
+  {    
+  
+    this.gimnasioService.getInfoAfiliadoById(this.IdUsuario).subscribe(detalle =>{   
+               this.nombres = detalle[0].nombre;
+       return  this.detalle = detalle;
+        
+    });
+  }
+  async Entrenador() {
+    const alert = await this.alertController.create({
+      cssClass: 'my-custom-class',
+      header: 'Entrenador',
+      
+      message: 'Almilcar : 98554567 ',
+      
+      buttons: ['OK']
+    });
+
+    await alert.present();
   }
 
   async presentAlertPrompt() {

@@ -87,6 +87,18 @@ const routes: Routes = [
     path: 'proceso-gimnasio',
     loadChildren: () => import('./Vistas/perfil/proceso-gimnasio/proceso-gimnasio.module').then( m => m.ProcesoGimnasioPageModule)
   },
+  {
+    path: 'cal-modal',
+    loadChildren: () => import('./Componente/cal-modal/cal-modal.module').then( m => m.CalModalPageModule)
+  },
+  {
+    path: 'crear-datos-admin',
+    loadChildren: () => import('./VistaAdmin/crear-datos-admin/crear-datos-admin.module').then( m => m.CrearDatosAdminPageModule)
+  },
+  {
+    path: 'detalle-datos-ad',
+    loadChildren: () => import('./VistaAdmin/detalle-datos-ad/detalle-datos-ad.module').then( m => m.DetalleDatosAdPageModule)
+  },
 ];
 
 @NgModule({

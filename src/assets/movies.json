@@ -1,0 +1,26 @@
+
+   {
+    "movies": [
+        {
+            "lunes": "Espalda y biceps hola hola hola hola",
+            "martes": "piernas",
+            "miercoles": "pecho",
+            "miercoles": "pecho"
+        },
+        {
+            "lunes": "biceps",
+            "martes": "piernas",
+            "miercoles": "hombros"
+        },
+        {
+            "lunes": "espalda",
+            "martes": "piernas",
+            "miercoles": "pecho"
+        },
+        {
+            "lunes": "biceps",
+            "martes": "triceps",
+            "miercoles": "Pecho"
+        }
+    ]
+}

@@ -9,20 +9,21 @@
 </ion-header>
 
 <ion-content>
+ 
+ <ion-card  *ngFor="let item of detalle">
 
- <ion-card>
-  <img src="/assets/img/LogoInfinity.jpg" alt="ion" style="height: 150px;width: 150px;text-align: center" >
+  <img  [src]="item.logo" alt="ion" style="height: 150px;width: 150px;text-align: center" >
   <ion-card-header>
-    <ion-card-title>Infinity Gym</ion-card-title>
+    <ion-card-title>{{item.nommbreGimnasio}}</ion-card-title>
   </ion-card-header>
   <ion-card-content>
-    Tenemos las mejores opciones.
+    {{item.slogan}}
   </ion-card-content>
 
   <ion-footer>
     <ion-row>
       <ion-col center text-center>
-        <button routerLink="/detalle-infinity-gyn">
+        <button routerLink="/detalle-infinity-gyn" [queryParams]="{IdGimnasio: item.id_Gimnasio}">
           <ion-icon name="newspaper-outline"></ion-icon>
           <div>Detalles</div>
         </button>
@@ -32,165 +33,6 @@
   </ion-footer>
 </ion-card>
 
- <ion-card>
-  
-
-  <img src="/assets/img/LogoCross.png" alt="ion" style="height: 150px;width: 150px;text-align: center" >
-
-  <ion-card-header>
-    <ion-card-title>Cross Gym</ion-card-title>
-  </ion-card-header>
-  <ion-card-content>
-    Tenemos las mejores opciones.
-  </ion-card-content>
-
-  <ion-footer>
-    <ion-row>
-    
-      <ion-col center text-center>
-        <button routerLink="/detalle-cross-gym">
-          <ion-icon name="newspaper-outline" ></ion-icon>
-          <div>Detalles</div>
-        </button>
-      </ion-col>
-  
-    </ion-row>
-  </ion-footer>
-</ion-card>
-
-<ion-card>
-  
-  <img src="/assets/img/PalermoGym.jpg" alt="ion" style="height: 150px;width: 150px;text-align: center" >
-
-  <ion-card-header>
-    <ion-card-title>Palermo Gym</ion-card-title>
-  </ion-card-header>
-  <ion-card-content>
-    Tenemos las mejores opciones.
-  </ion-card-content>
-
-  <ion-footer>
-    <ion-row>
-      <ion-col center text-center>
-        <button routerLink="/detalle-palermo-gym">
-          <ion-icon name="newspaper-outline"></ion-icon>
-          <div>Detalles</div>
-        </button>
-      </ion-col>
-    
-    </ion-row>
-  </ion-footer>
-</ion-card>
-<ion-card>
-  
-  <img src="/assets/img/LogoCarento.png" alt="ion" style="height: 150px;width: 150px;text-align: center" >
-
-  <ion-card-header>
-    <ion-card-title>Carento Gym</ion-card-title>
-  </ion-card-header>
-  <ion-card-content>
-    Tenemos las mejores opciones.
-  </ion-card-content>
-
-  <ion-footer>
-    <ion-row>
-      <ion-col center text-center>
-        <button>
-          <ion-icon name="newspaper-outline"></ion-icon>
-          <div>Detalles</div>
-        </button>
-      </ion-col>
-     
-    </ion-row>
-  </ion-footer>
-</ion-card>
-<ion-card>  
-  <img src="/assets/img/Ribereña.jpeg" alt="ion" style="height: 150px;width: 150px;text-align: center" >
-
-  <ion-card-header>
-    <ion-card-title>Atletas Progreseños</ion-card-title>
-  </ion-card-header>
-  <ion-card-content>
-    Tenemos las mejores opciones.
-  </ion-card-content>
-
-  <ion-footer>
-    <ion-row>
-      <ion-col center text-center>
-        <button>
-          <ion-icon name="newspaper-outline"></ion-icon>
-          <div>Detalles</div>
-        </button>
-      </ion-col>
-    </ion-row>
-  </ion-footer>
-</ion-card>
-
-<ion-card>  
-  <img src="/assets/img/MusleGym.jfif" alt="ion" style="height: 150px;width: 150px;text-align: center" >
-
-  <ion-card-header>
-    <ion-card-title>Muscle Gym</ion-card-title>
-  </ion-card-header>
-  <ion-card-content>
-    Tenemos las mejores opciones.
-  </ion-card-content>
-
-  <ion-footer>
-    <ion-row>
-      <ion-col center text-center>
-        <button>
-          <ion-icon name="newspaper-outline"></ion-icon>
-          <div>Detalles</div>
-        </button>
-      </ion-col>
-    </ion-row>
-  </ion-footer>
-</ion-card>
-
-<ion-card>  
-  <img src="/assets/img/Ribereña.jpeg" alt="ion" style="height: 150px;width: 150px;text-align: center" >
-
-  <ion-card-header>
-    <ion-card-title>Gimnasio Municipal</ion-card-title>
-  </ion-card-header>
-  <ion-card-content>
-    Tenemos las mejores opciones.
-  </ion-card-content>
-
-  <ion-footer>
-    <ion-row>
-      <ion-col center text-center>
-        <button>
-          <ion-icon name="newspaper-outline"></ion-icon>
-          <div>Detalles</div>
-        </button>
-      </ion-col>
-    </ion-row>
-  </ion-footer>
-</ion-card>
-
-<ion-card>  
-  <img src="/assets/img/NuevaImagen.jfif" alt="ion" style="height: 150px;width: 150px;text-align: center" >
-
-  <ion-card-header>
-    <ion-card-title>Gimnasio Nueva Imagen</ion-card-title>
-  </ion-card-header>
-  <ion-card-content>
-    Tenemos las mejores opciones.
-  </ion-card-content>
-
-  <ion-footer>
-    <ion-row>
-      <ion-col center text-center>
-        <button>
-          <ion-icon name="newspaper-outline"></ion-icon>
-          <div>Detalles</div>
-        </button>
-      </ion-col>
-    </ion-row>
-  </ion-footer>
-</ion-card>
 </ion-content>
 
 

@@ -1,36 +1,38 @@
 <ion-header>
   <ion-toolbar color="tertiary">
-    <ion-title>InFinyGym</ion-title>
+    <ion-title>Detalle</ion-title>
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/gimnasios"></ion-back-button>
     </ion-buttons>
     
   </ion-toolbar>
 </ion-header>
+
 <ion-content>
-<ion-card>
+
+<ion-card  *ngFor="let item of detalle">
  <ion-card-header>
       detalles
     </ion-card-header>
  <ion-card-content>
   <ion-item>
     <ion-avatar slot="start">
-      <img src="/assets/avatars/logo.png">
+      <img src="/assets/avatars/logo.png"  >
     </ion-avatar>
     <ion-label>
-      <h3>Luis Inestroza</h3>
-      <p>Enero 10, 2019</p>
+      <h3></h3>
+      <p>entrena</p>
     </ion-label>
   </ion-item>
 
-  <img src="/assets/img/logoinf.jpg" alt="ion">
+  <img [src]="item.informacionDetalle" alt="ion">
   <ion-card-header>
-    <ion-card-title>Infinity Gym</ion-card-title>
+    <ion-card-title>{{item.nommbreGimnasio}}</ion-card-title>
   </ion-card-header>
   <ion-card-content>
 
   <ion-text color="dark">
-  <h5>   Tenemos la maquinaria moderna , Entrenadores calificados con nutricionista profesional</h5>
+  <h5>   {{item.slogan}}</h5>
 </ion-text>
  
   </ion-card-content>
@@ -65,6 +67,7 @@
   </ion-footer>
     </ion-card-content>
 </ion-card>
+
 <ion-card>
  <ion-card-content>  
   <ion-card-content>

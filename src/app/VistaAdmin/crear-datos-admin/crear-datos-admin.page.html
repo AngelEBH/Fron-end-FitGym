@@ -5,25 +5,19 @@
 		
     </ion-buttons>
     
-    <ion-buttons slot="end">
-			<ion-button class="bordered" fill="solid" color="light">
-				<ion-icon name="notifications"></ion-icon>
-			</ion-button>
-    </ion-buttons>
-    
   </ion-toolbar>
-    
-  <ion-item lines="none" >
-       
+
+  <ion-item lines="none">
+
 		<ion-avatar slot="start">
 			<img src="https://habib.al-mawali.com/wp-content/uploads/IMG_4838-1-768x768.jpg">
     </ion-avatar>
-			<ion-label >
-				<p>Hola {{nombres}}</p>
-				<h3>{{userName}}</h3>
+			<ion-label>
+				<p>Hola</p>
+				<h3>Angel Bautista</h3>
 			</ion-label>
-	</ion-item>
 
+	</ion-item>
 </ion-header>
 
 <ion-content class="" >
@@ -32,19 +26,19 @@
 </ion-list-header>
 <ion-item detail>
 	<ion-icon slot="start" name="albums" routerLink="/proceso-gimnasio" ></ion-icon>
-	<ion-label>Rutinas</ion-label>
+	<ion-label>Crear Gimnasio</ion-label>
 </ion-item>
 <ion-item detail>
-	<ion-icon slot="start" name="person-add" (click)="Entrenador()"></ion-icon>
-	<ion-label>Entrenador</ion-label>
+	<ion-icon slot="start" name="person-add" ></ion-icon>
+	<ion-label> Crear Entrenador</ion-label>
 </ion-item>
 <ion-item detail>
 	<ion-icon slot="start" name="calendar" routerLink="/rutina-gimnasio"></ion-icon>
-	<ion-label>Proceso</ion-label>
+	<ion-label>Crear Rutinas</ion-label>
 </ion-item>
 <ion-item detail>
 	<ion-icon slot="start" name="clipboard"></ion-icon>
-	<ion-label>plan de rutinas</ion-label>
+	<ion-label>Crear Precio</ion-label>
 </ion-item>
 
 </ion-content>
