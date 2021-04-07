@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-title>Rutinas</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/crear-datos-admin"></ion-back-button>
+    </ion-buttons>
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+  <div>
+    <form [formGroup]="FormRutina">
+      <ion-item class="input">
+        <ion-label position="floating" style="color: black;">Descripción</ion-label>        
+        <ion-textarea class="input" type="text-area" style="color: black;" formControlName="Rutina_descripcion" ></ion-textarea>
+    </ion-item>
+    <ion-item class="input">
+      <ion-label position="floating" style="color: black;">Logo</ion-label>      
+      <ion-textarea class="input" type="text-area" style="color: black;" formControlName="Rutina_logo"></ion-textarea>
+  </ion-item>
+    </form>
+    <ion-button expand="block" color="medium" style="color: green;" (click)="addinfo()" [disabled]="FormRutina.invalid" >Agregar</ion-button>
+  </div>
+
+  <div >
+    <form >
+      <ion-item class="input">
+        <ion-label position="floating" style="color: black;">Descripción</ion-label>
+    </ion-item>
+      
+    </form>
+    <ion-button expand="block" color="medium" style="color: green;"  >Modificar</ion-button>
+  </div>
+
+
+</ion-content>

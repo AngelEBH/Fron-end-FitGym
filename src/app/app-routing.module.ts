@@ -103,6 +103,10 @@ const routes: Routes = [
     path: 'home',
     loadChildren: () => import('./home/home-routing.module').then( m => m.HomePageRoutingModule)
   },
+  {
+    path: 'admin-rutinas',
+    loadChildren: () => import('./VistaAdmin/admin-rutinas/admin-rutinas.module').then( m => m.AdminRutinasPageModule)
+  },
 ];
 
 @NgModule({

@@ -37,8 +37,8 @@ export class GimnasioService {
     return this.http.get<Afiliado[]>(`${environment.API_URL}gimnasio/GetInfoAfiliadoById/${IdGimnasio}`, {headers:this.headers});
   }
 
-  getTipoRutina()
+  getTipoRutina(IdGimnasio)
   {    
-   return  this.http.get<TipoRutina[]>(`${environment.API_URL}gimnasio/GetTipoRutina`, {headers:this.headers});
+   return  this.http.get<TipoRutina[]>(`${environment.API_URL}gimnasio/GetTipoRutina/${IdGimnasio}`, {headers:this.headers});
   }
 }
