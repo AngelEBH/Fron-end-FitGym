@@ -6,6 +6,7 @@ import { Gimnasios} from '../Model/Gimnasios';
 import { Storage } from '@ionic/storage';
 import { Entrenador } from '../Model/Entrenador';
 import { Afiliado } from '../Model/Afiliado';
+import { TipoRutina } from '../Model/TipoRutina';
 
 @Injectable({
   providedIn: 'root'
@@ -34,5 +35,10 @@ export class GimnasioService {
   getInfoAfiliadoById(IdGimnasio) {
     
     return this.http.get<Afiliado[]>(`${environment.API_URL}gimnasio/GetInfoAfiliadoById/${IdGimnasio}`, {headers:this.headers});
+  }
+
+  getTipoRutina()
+  {    
+   return  this.http.get<TipoRutina[]>(`${environment.API_URL}gimnasio/GetTipoRutina`, {headers:this.headers});
   }
 }

@@ -1,167 +1,35 @@
-<ion-content>
+<ion-menu side="start" menuId="first" contentId="main">
+  <ion-header>
+    <ion-toolbar color="primary">
+      <ion-title> Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <div class="menu-header-bg"></div>
+    <div class="header-content">
+      <img src="/assets/avatars/logo.png" alt=""> 
+    </div>
+    <div *ngIf="rolesId==2"> 
+      <ion-list lines="none" class="menu-items">
+        <ion-menu-toggle>        
+        <ion-item><ion-icon name="barbell-outline" routerLink="/gimnasios"></ion-icon> gimnasios </ion-item>
+        <ion-item> <ion-icon name="location-outline" routerLink="/geolocaizacion"></ion-icon>ubicacion</ion-item>
+        <ion-item> <ion-icon name="cash-outline" routerLink="/pixel-pay"></ion-icon>pago</ion-item>
+        <ion-item><ion-icon name="flash" routerLink="/procesos"></ion-icon>rutinas</ion-item>
+        <ion-item class="active"> <ion-icon name="exit-outline" (click)="logout()" routerLink="/login"></ion-icon>Cerrar session</ion-item>
+      </ion-menu-toggle>
+      </ion-list>
+    </div>
 
-
-  <ion-slides class="mainSlide" #sLidePrincipal>
-    
-    <ion-slide>
-
-      <form (ngSubmit)="login(fLogin)" #fLogin="ngForm">
-        <ion-grid fixed>
-          <ion-row>
-            <ion-col>
-              <img src="/assets/avatars/av-1.png">
-            </ion-col>
-          </ion-row>
-        
-          <ion-row>
-            <ion-col>
-              
-                <ion-list>
-                  
-                  <ion-item>
-                    <ion-label>Email</ion-label>
-                    <ion-input name="email"
-                                type="email"
-                                required></ion-input>
-                  </ion-item>
-
-                  <ion-item>
-                    <ion-label>Password</ion-label>
-                    <ion-input name="password"
-                                type="password"
-                                required></ion-input>
-                  </ion-item>
-
-                </ion-list>
-            </ion-col>
-          </ion-row>
-
-          <ion-row>
-            <ion-col>
-              <ion-button type="submit"
-                          color="tertiary"
-                          shape="round">
-                Login
-              </ion-button>
-            </ion-col>
-          </ion-row>
-
-        </ion-grid>
-      </form>
-    
-
-
-    </ion-slide>
-
-    <ion-slide>
-
-      
-      <ion-grid fixed>
-
-            <ion-row>
-            <ion-col>
-                <h3>Seleccione Avatar</h3>
-            </ion-col>
-            </ion-row>
-
-            <ion-row>
-            <ion-col>
-                <ion-slides>
-                <ion-slide *ngFor="let avatar of [1,1,1,1,1,1,1]">
-                    <ion-img class="pick-avatar" 
-                            src="/assets/avatars/av-1.png"></ion-img>
-                </ion-slide>
-                </ion-slides>
-            </ion-col>
-            </ion-row>
-        
-            <form (ngSubmit)="registro(fRegistro)" #fRegistro="ngForm">
-                <ion-row>
-                    <ion-col>
-                        
-                        <ion-list>
-                            
-                            <ion-item>
-                            <ion-label>Email</ion-label>
-                            <ion-input name="email" 
-                                        type="email"
-                                        required></ion-input>
-                            </ion-item>
-
-                            <ion-item>
-                            <ion-label>Nombre</ion-label>
-                            <ion-input name="nombre"
-                                        type="text"
-                                        required></ion-input>
-                            </ion-item>
-
-                            <ion-item>
-                            <ion-label>Password</ion-label>
-                            <ion-input name="password"
-                                        type="password"
-                                        required></ion-input>
-                            </ion-item>
-
-                        </ion-list>
-                    </ion-col>
-                </ion-row>
-                
-                <ion-row>
-                <ion-col>
-                    <ion-button type="submit"
-                                color="tertiary"
-                                shape="round">
-                        Crear usuario
-                    </ion-button>
-                </ion-col>
-            </ion-row>
-            
-            </form>
-        </ion-grid>
+    <div *ngIf="rolesId==1"> 
+      <ion-list lines="none" class="menu-items">
+        <ion-menu-toggle>        
+        <ion-item><ion-icon name="barbell-outline" routerLink="/gimnasios"></ion-icon> gimnasios </ion-item>
+        <ion-item> <ion-icon name="location-outline" routerLink="/geolocaizacion"></ion-icon>Afiliados</ion-item>         
+        <ion-item class="active"> <ion-icon name="exit-outline" (click)="logout()" routerLink="/login"></ion-icon>Cerrar session</ion-item>
+      </ion-menu-toggle>
+      </ion-list>
+    </div>
   
-  
-      </ion-slide>
-
-
-  </ion-slides>
-
-
-
-</ion-content>
-
-
-<ion-footer no-border>
-  <ion-toolbar>
-    
-    <ion-row>
-
-      <ion-col>
-          <ion-button shape="round"
-                      expand="full"
-                      size="small"
-                      fill="outline"
-                      color="tertiary"
-                      (click)="mostrarRegistro()">                    
-                      
-                    
-            Ingresar
-          </ion-button>
-      </ion-col>
-
-      <ion-col>
-        <ion-button shape="round"
-                    expand="full"
-                    size="small"
-                    fill="outline"
-                    color="tertiary"
-                    (click)="mostrarLogin()">
-          Registrarme
-        </ion-button>
-      </ion-col>
-
-    </ion-row>
-
-
-
-  </ion-toolbar>
-</ion-footer>
+  </ion-content>
+</ion-menu>

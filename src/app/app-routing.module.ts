@@ -99,6 +99,10 @@ const routes: Routes = [
     path: 'detalle-datos-ad',
     loadChildren: () => import('./VistaAdmin/detalle-datos-ad/detalle-datos-ad.module').then( m => m.DetalleDatosAdPageModule)
   },
+  {
+    path: 'home',
+    loadChildren: () => import('./home/home-routing.module').then( m => m.HomePageRoutingModule)
+  },
 ];
 
 @NgModule({

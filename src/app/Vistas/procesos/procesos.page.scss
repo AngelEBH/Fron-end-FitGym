@@ -2,3 +2,31 @@
     -webkit-transform:scale(1.3);transform:scale(1.3);
 }
 
+.EmpresaImage{
+    font-size: 4em;
+    width: 90px;
+    height: 90x;
+  
+}  
+
+
+.card {
+  //@error  border-radius: 20px;
+    
+  // padding: 20px 10px 10px;
+  
+  box-shadow: none !important;
+
+  }
+
+  .center-card
+  {
+      display: flex;
+      justify-content: center;
+      h2{
+          text-align: center;
+          font-weight: bold;
+          color: black;
+      }
+  }
+
