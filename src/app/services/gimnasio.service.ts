@@ -7,6 +7,7 @@ import { Storage } from '@ionic/storage';
 import { Entrenador } from '../Model/Entrenador';
 import { Afiliado } from '../Model/Afiliado';
 import { TipoRutina } from '../Model/TipoRutina';
+import { Rutinas } from '../Model/Rutinas';
 
 @Injectable({
   providedIn: 'root'
@@ -40,5 +41,33 @@ export class GimnasioService {
   getTipoRutina(IdGimnasio)
   {    
    return  this.http.get<TipoRutina[]>(`${environment.API_URL}gimnasio/GetTipoRutina/${IdGimnasio}`, {headers:this.headers});
+  }
+  getDetalleRutina(IdRutina)
+  {    
+   return  this.http.get<Rutinas[]>(`${environment.API_URL}gimnasio/GetDetalleRutina/${IdRutina}`, {headers:this.headers});
+  }
+
+  getByDuenoGimnasios(IdUsuario) {
+   
+    return this.http.get<Gimnasios[]>(`${environment.API_URL}gimnasio/GetByDuenoGimnsasio/${IdUsuario}`, {headers:this.headers});
+  }
+  getTipoRutina2(IdRutina)
+  {    
+   return  this.http.get<TipoRutina[]>(`${environment.API_URL}gimnasio/GetTipoRutina2/${IdRutina}`, {headers:this.headers});
+  }
+
+  CrearTipoRutina(descripcion,GimnasioId)
+  {    
+    debugger;
+   return  this.http.post<TipoRutina[]>(`${environment.API_URL}gimnasio/CrearTipoRutina`, {Descripcion: descripcion, Id_Gimnasio: GimnasioId}, {headers:this.headers});
+  }
+  DeleteTipoRutina(IdRutina)
+  {    
+   return  this.http.delete<TipoRutina[]>(`${environment.API_URL}gimnasio/GetTipoRutina/${IdRutina}`, {headers:this.headers});
+  }
+
+  UpdateTipoRutina(descripcion ,IdRutina)
+  {    
+   return  this.http.put<TipoRutina[]>(`${environment.API_URL}gimnasio/UpdateTipoRutina/${IdRutina}`, {headers:this.headers});
   }
 }

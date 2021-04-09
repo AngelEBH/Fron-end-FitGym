@@ -28,6 +28,7 @@ export class ProcesosPage  {
   Afiliado : Afiliado[] = [];
   public idUsuario : number;
   public idGimnasio: number;
+  //public IdRutina : number;
   
   constructor(private gimnasioService:GimnasioService,
     private storage: Storage,

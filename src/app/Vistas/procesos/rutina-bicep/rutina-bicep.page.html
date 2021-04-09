@@ -8,81 +8,22 @@
 </ion-header>
 <ion-content color="Light">
 
-  <ion-list>
+  <ion-list  >
     <ion-list-header style="text-align: center;">
-     <h3 >Biceps</h3> 
+     <h3 >Detalle</h3> 
     </ion-list-header>
   
-    <ion-item>
+    <ion-item *ngFor="let item of detalle">
       <ion-avatar slot="start">
-        <img src="/assets/avatars/biceps-barra.gif">
+        <img [src]="item.imagen">
       </ion-avatar>
       <ion-label>
-        <h2>Curl para bicep</h2>
-        
-        <p>Repeticion 12x3</p>
+        <h2>{{item.nombre}}</h2>        
+        <p>{{item.instruccion}}</p>
       </ion-label>
     </ion-item>
   
-    <ion-item>
-      <ion-avatar slot="start">
-        <img src="/assets/avatars/biceps-barra-z.gif">
-      </ion-avatar>
-      <ion-label>
-        <h2>curl con barra Z</h2>   
-        <p>12x4</p>
-      </ion-label>
-    </ion-item>
   
-    <ion-item>
-      <ion-avatar slot="start">
-        <img src="/assets/avatars/curl-mancuernas.gif">
-      </ion-avatar>
-      <ion-label>
-        <h2>Curl con mancuernas</h2>     
-        <p>12x3</p>
-      </ion-label>
-    </ion-item>
-  
-    <ion-item>
-      <ion-avatar slot="start">
-        <img src="/assets/avatars/curl-martillo.gif">
-      </ion-avatar>
-      <ion-label>
-        <h2>Curl de martillo con mancuerna</h2>     
-        <p>4×15</p>
-      </ion-label>
-    </ion-item>
-
-    <ion-item>
-      <ion-avatar slot="start">
-        <img src="/assets/avatars/dominadas.gif">
-      </ion-avatar>
-      <ion-label>
-        <h2>Dominadas con agarre neutro</h2>     
-        <p>4×15</p>
-      </ion-label>
-    </ion-item>
-
-    <ion-item>
-      <ion-avatar slot="start">
-        <img src="/assets/img/banda-elastica.jpg">
-      </ion-avatar>
-      <ion-label>
-        <h2>Curl con banda de resistencia</h2>     
-        <p>20 segundos</p>
-        <p>4x25 a 30 repeticiones</p>
-      </ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-avatar slot="start">
-        <img src="/assets/img/mancuernas-curl.jpg">
-      </ion-avatar>
-      <ion-label>
-        <h2>Curl con mancuernas en banco inclinado</h2>   
-        <p>4x12</p>
-      </ion-label>
-    </ion-item>
   </ion-list>
   
   </ion-content>

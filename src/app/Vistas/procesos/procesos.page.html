@@ -16,7 +16,7 @@
   <ion-row class="row"> 
   <ion-col  *ngFor="let item of detalle" size="4" text-center>
         
-    <ion-card class="card" routerLink="rutina-bicep"  padding  text-center>
+    <ion-card class="card" routerLink="rutina-bicep"  padding  text-center  [queryParams]="{IdRutina: item.id_TipoRutina}">
       <div class="center-card">
       <img class="EmpresaImage" [src]="item.logo">
      </div>

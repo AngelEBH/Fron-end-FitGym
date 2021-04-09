@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { AdminRutinasPageRoutingModule } from './admin-rutinas-routing.module';
 
 import { AdminRutinasPage } from './admin-rutinas.page';
+//import { ImagePicker } from '@ionic-native/image-picker';
 
 @NgModule({
   imports: [
@@ -14,6 +15,7 @@ import { AdminRutinasPage } from './admin-rutinas.page';
     FormsModule,    
     ReactiveFormsModule,
     IonicModule,
+    //ImagePicker,
     AdminRutinasPageRoutingModule
   ],
   declarations: [AdminRutinasPage]

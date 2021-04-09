@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-title>Rutinas</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/crear-datos-admin"></ion-back-button>
+    </ion-buttons>
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div *ngIf="!IsModify">
+    <form [formGroup]="FormRutina" >
+      <ion-item class="input">
+        <ion-label position="floating" style="color: black;">Descripción</ion-label>        
+        <ion-textarea class="input" type="text-area" style="color: black;" formControlName="Rutina_descripcion" ></ion-textarea>
+    </ion-item>
+    <ion-item class="input">
+      <ion-label position="floating" style="color: black;">Logo</ion-label>      
+      <ion-textarea class="input" type="text-area" style="color: black;" ></ion-textarea>
+  </ion-item>
+  <ion-item class="input" class="ion-text-center">
+    <ion-button expand="full"
+                  shape="round"
+                  (click)="libreria()">
+        <ion-icon slot="start" name="images"></ion-icon>
+        Galería
+      </ion-button>
+    
+</ion-item>
+
+    </form>
+    <ion-button expand="block" color="medium" style="color: green;" (click)="addinfo()" [disabled]="FormRutina.invalid" >Agregar</ion-button>
+  </div>
+
+  <div *ngIf="IsModify" >
+    <form [formGroup]="FormRutina" *ngFor="let item of detalle">
+      <ion-item class="input" >
+        <ion-label position="floating" style="color: black;">Descripción</ion-label>
+        <ion-textarea type="text-area"  [(ngModel)]="item.descripcion" style="color: black;" formControlName="Rutina_descripcion"></ion-textarea>
+    </ion-item>
+      
+    </form>
+    <ion-button expand="block" color="medium" style="color: green;"  >Modificar</ion-button>
+  </div>
+
+</ion-content>

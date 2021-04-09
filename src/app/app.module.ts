@@ -1,4 +1,4 @@
-import {  LOCALE_ID, NgModule } from '@angular/core';
+import {  LOCALE_ID } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 import {HttpClientModule} from '@angular/common/http';
@@ -13,11 +13,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { from } from 'rxjs';
 import { PerfilPipe } from './Vistas/perfil.pipe';
 import { ReactiveFormsModule } from '@angular/forms';
+//import { ImagePicker } from '@ionic-native/image-picker/ngx';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { NgCalendarModule } from 'ionic2-calendar';
 import { CalModalPageModule } from './Componente/cal-modal/cal-modal.module';
 import { registerLocaleData } from '@angular/common';
-import localDe from '@angular/common/locales/de'
+import localDe from '@angular/common/locales/de';
+import {NgModule,ModuleWithProviders} from '@angular/core';
+import {Camera} from '@ionic-native/camera/ngx';
 registerLocaleData(localDe);
 
 
@@ -32,12 +35,16 @@ registerLocaleData(localDe);
     NgxDatatableModule,
     NgCalendarModule,
     CalModalPageModule
+    
+    
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy}
+    //ImagePicker,
+    Camera,
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy},
+   
   ],
   bootstrap: [AppComponent]
 })

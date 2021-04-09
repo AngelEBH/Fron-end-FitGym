@@ -9,31 +9,39 @@
 </ion-header>
 
 <ion-content>
+  <br>
 
-
-  <div>
-    <form [formGroup]="FormRutina">
-      <ion-item class="input">
-        <ion-label position="floating" style="color: black;">Descripción</ion-label>        
-        <ion-textarea class="input" type="text-area" style="color: black;" formControlName="Rutina_descripcion" ></ion-textarea>
-    </ion-item>
-    <ion-item class="input">
-      <ion-label position="floating" style="color: black;">Logo</ion-label>      
-      <ion-textarea class="input" type="text-area" style="color: black;" formControlName="Rutina_logo"></ion-textarea>
-  </ion-item>
-    </form>
-    <ion-button expand="block" color="medium" style="color: green;" (click)="addinfo()" [disabled]="FormRutina.invalid" >Agregar</ion-button>
+  <div style="float: right;">
+      <ion-button (click)="addItem()" color="success">
+      <ion-icon name="create" ></ion-icon>
+      &nbsp; Add
+      </ion-button>
   </div>
-
-  <div >
-    <form >
-      <ion-item class="input">
-        <ion-label position="floating" style="color: black;">Descripción</ion-label>
-    </ion-item>
-      
-    </form>
-    <ion-button expand="block" color="medium" style="color: green;"  >Modificar</ion-button>
-  </div>
-
+  <br>
+  <br>
+  <br>
+  
+    <ion-list *ngFor="let item of detalle">
+  
+      <ion-item-sliding>
+   
+       <ion-item >
+       {{item.descripcion}}
+       </ion-item>
+   
+       <ion-item-options>
+        <button danger (click)="goEditInfo(item.id_TipoRutina)"><ion-icon name="reader"></ion-icon> Modify</button>&nbsp;
+         <button danger (click)="removeItem(item.id_TipoRutina)"><ion-icon name="trash"></ion-icon> Delete</button>
+       </ion-item-options>
+     </ion-item-sliding>
+   
+     </ion-list>
+  
+     <div class="Container">
+      <div class="SubContainer">
+        
+      </div>
+    </div>
+  
 
 </ion-content>

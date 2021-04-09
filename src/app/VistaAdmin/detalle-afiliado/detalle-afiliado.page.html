@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-title>Datos Afiliado</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/inicio"></ion-back-button>
+    </ion-buttons>
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-padding">
+
+    <!-- Theme classes dark, material, bootstrap -->
+    <ngx-datatable 
+      class="dark"    
+      [ngClass]="tableStyle"
+      [rows]="rows" 
+      [rowHeight]="80"
+      [columns]="columns"
+      [columnMode]="'force'"     
+      [headerHeight]="50"      
+      [scrollbarH]="true"
+      [scrollbarV]="true">
+    </ngx-datatable>
+
+  </div>
+
+</ion-content>

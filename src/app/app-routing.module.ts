@@ -107,6 +107,26 @@ const routes: Routes = [
     path: 'admin-rutinas',
     loadChildren: () => import('./VistaAdmin/admin-rutinas/admin-rutinas.module').then( m => m.AdminRutinasPageModule)
   },
+  {
+    path: 'modal-tipo-rutina',
+    loadChildren: () => import('./VistaAdmin/modal-tipo-rutina/modal-tipo-rutina.module').then( m => m.ModalTipoRutinaPageModule)
+  },
+  {
+    path: 'crear-gimnasio',
+    loadChildren: () => import('./VistaAdmin/crear-gimnasio/crear-gimnasio.module').then( m => m.CrearGimnasioPageModule)
+  },
+  {
+    path: 'crear',
+    loadChildren: () => import('./VistaAdmin/crear/crear.module').then( m => m.CrearPageModule)
+  },
+  {
+    path: 'crear-precio',
+    loadChildren: () => import('./VistaAdmin/crear-precio/crear-precio.module').then( m => m.CrearPrecioPageModule)
+  },
+  {
+    path: 'detalle-afiliado',
+    loadChildren: () => import('./VistaAdmin/detalle-afiliado/detalle-afiliado.module').then( m => m.DetalleAfiliadoPageModule)
+  },
 ];
 
 @NgModule({
